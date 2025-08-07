@@ -25,17 +25,17 @@ jobs:
         pip install -r requirements.txt
         pip install mypy black isort flake8 pytest
     
-    - name: Run pytest
+    - name: Run tests
       run: pytest test/
     
-    - name: Run mypy
+    - name: Type checking
       run: mypy src/
     
-    - name: Run black
+    - name: Black formatting check
       run: black --check --diff src/
     
-    - name: Run isort
+    - name: Import sorting check
       run: isort --check-only --diff src/
     
-    - name: Run flake8
+    - name: Flake8 linting
       run: flake8 src/
