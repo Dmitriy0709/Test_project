@@ -1,7 +1,7 @@
 attrs==25.3.0
-black==25.1.0
+black==23.12.1
 blinker==1.9.0
-click==8.2.1
+click==8.1.7
 flake8==7.3.0
 flake8-bugbear==24.12.12
 flake8-pie==0.16.0
