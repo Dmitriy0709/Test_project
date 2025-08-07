@@ -1,36 +1,31 @@
-workflow:
-  rules:
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+name: Python CI
 
-image: python:3.7
+on:
+  pull_request:
+    branches: [ main ]
 
-stages:
-  - test
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container: python:3.7
 
-before_script:
-  - pip install -r requirements.txt
+    steps:
+    - uses: actions/checkout@v4
 
-unittest:
-  stage: test
-  script: 
-    - pytest test
+    - name: Install dependencies
+      run: pip install -r requirements.txt
 
-mypy:
-  stage: test
-  script:
-    - mypy src/
+    - name: Run pytest
+      run: pytest test/
 
-black:
-  stage: test
-  script:
-    - black --diff --check src/
+    - name: Run mypy
+      run: mypy src/
 
-isort:
-  stage: test
-  script:
-    - isort --check-only --diff src/
+    - name: Run black
+      run: black --check --diff src/
 
-flake8:
-  stage: test
-  script:
-    - flake8 src/
+    - name: Run isort
+      run: isort --check-only --diff src/
+
+    - name: Run flake8
+      run: flake8 src/
