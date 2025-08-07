@@ -8,3 +8,5 @@ flake8-pie==0.16.0
 Flask==2.3.2
 flask-marshmallow==0.14.0
 Flask-SQLAlchemy==3.0.5
+pytest==8.4.1
+pytest-cov==4.1.0
