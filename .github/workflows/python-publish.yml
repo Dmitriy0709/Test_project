@@ -39,3 +39,4 @@ jobs:
     
     - name: Flake8 linting
       run: flake8 src/
+
