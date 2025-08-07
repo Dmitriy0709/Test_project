@@ -20,10 +20,11 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
+        pip install pytest  # Устанавливаем pytest
         pip install -r requirements.txt
     
     - name: Run pytest
-      run: pytest tests/  # Теперь pytest будет искать тесты в правильной директории
+      run: pytest tests/  # Теперь pytest должен быть доступен
     
     - name: Run linters
       run: |
