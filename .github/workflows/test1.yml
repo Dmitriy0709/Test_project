@@ -21,6 +21,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+        pip install mypy  # Устанавливаем mypy отдельно (если не в requirements.txt)
 
     - name: Run tests with pytest
       run: PYTHONPATH=${{ github.workspace }} pytest tests/
